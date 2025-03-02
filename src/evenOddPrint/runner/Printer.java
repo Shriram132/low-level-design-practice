@@ -19,6 +19,7 @@ public class Printer implements Runnable {
 
     @Override
     public void run(){
+
         while(currentValue <= maxValue){
             synchronized (state){
                 while (this.currentPrinterType != state.getNextToPrint()){
