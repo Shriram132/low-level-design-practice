@@ -16,6 +16,13 @@ public class Printer implements Runnable {
     private PrinterType nextPrinterType;
 
 
+    public Printer(int currentValue, int maxValue, State state, PrinterType currentPrinterType, PrinterType nextPrinterType) {
+        this.currentValue = currentValue;
+        this.maxValue = maxValue;
+        this.state = state;
+        this.currentPrinterType = currentPrinterType;
+        this.nextPrinterType = nextPrinterType;
+    }
 
     @Override
     public void run(){
@@ -30,7 +37,7 @@ public class Printer implements Runnable {
                     }
                 }
                 System.out.println(currentPrinterType.toString() + " " + currentValue);
-                currentValue ++;
+                currentValue += 2;
                 state.nextToPrint = this.nextPrinterType;
                 state.notifyAll();
             }
